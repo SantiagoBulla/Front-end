@@ -8,6 +8,212 @@ font-family: 'Work Sans', sans-serif;*/
     --highlight-color: #ff8dac;
 }
 
+*{
+    font-size: 16px; /*1rem = 16px*/
+}
+
 body{
     background-color: var(--background-color);
+    font-family: 'Work Sans',Arial, Helvetica, sans-serif;/*se agrego work sans entre comillas porque es una fuente importada*/
+    line-height: 2;/*separacion de lineas*/
+    padding: 0;
+    margin: 0;
+}
+
+::selection{
+    background-color: var(--highlight-color);/*cambia de color el seleccionado de texto*/
+}
+::-moz-selection{
+    background-color: var(--highlight-color);/*cambia de color el seleccionado de texto*/
+}
+
+a{/*hipervinculos*/
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.2s ease-in-out;/*transicion al cambio de color en el hover, suave al inicio y al final de la transicion*/
+}
+
+a:hover{
+    color: var(--highlight-color);
+}
+
+/*encabezados*/
+h2, h3{
+    font-family: 'Barlow condensed',Arial, Helvetica, sans-serif;/*se usa para los encabezados la fuente importada barlow condensed*/
+}
+
+h2{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h3{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/*CONTAINER*/
+.container{
+    width: 1920px;/*tiene un tamaño de pantalla estandar*/
+}
+
+/*MENU*/
+.menu{/*escritorio*/
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px auto 0 auto;/*solo margin superior*/
+    width: 50%;
+}
+
+.menu > div{/*afecta a todas las capas div del menu*/
+    width: 33%;
+}
+
+.menu ul{
+    list-style: none;/*sin estilos para las listas*/
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu ul li{/*animacion para los elementos del menu tambien*/
+    animation-name: opening-logo;/*animacion propia*/
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;/*suave al empezar y terminar la animacion*/
+}
+
+.menu a{ /*elementos del menu*/
+    font-family: 'Barlow condensed';
+    font-size: 1.7rem;
+}
+
+.menu .logo img{
+    animation-name: opening-logo;/*animacion propia*/
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;/*suave al empezar y terminar la animacion*/
+}
+
+/*MENU MOBILE*/
+.menu-mobile{/*oculta el menu en primera instancia*/
+    display: none;
+}
+
+.menu-mobile a:hover svg{/*para el icono de hamburguesa*/
+    fill: var(--highlight-color);/*como es un vector svg se puede cambiar el color, en este caso con el hover*/
+}
+
+.menu-mobile .header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+}
+
+.menu-mobile .header .logo{
+    flex-grow: 2;/*factor de crecimiento del logo en su contenedor*/
+    text-align: center;
+}
+
+.menu-mobile .header .logo img{
+    width: 20%;
+    animation-name: opening-logo;
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;
+}
+
+.menu-mobile ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-mobile ul li{
+    text-align: center;
+}
+
+.menu-mobile ul li a{
+    display: block;
+    padding: 8px 0;
+}
+
+.menu-mobile-closed{
+    /*cuando se da click en el boton hamburguesa se quita este estilo y se muestra las opciones del menu*/
+    display: none;
+}
+
+/* MAIN VIDEO*/
+.main-video{/*tamaños y configuraciones del div que guarda el video*/
+    margin-top: 250px;
+    transform-origin: 0 0;/*para que la perspectiva no cambie*/
+    transform: skewY(-10deg);/*lo hace diagonal empezando de derecha a izquierda porque son deg negativos*/
+    overflow: hidden;/*para que no se desborde el contenido*/
+    height: 500px;/*500px*/
+    margin-bottom: 150px;
+}
+
+.main-video .video{
+    overflow: hidden;
+    transform: skewY(10deg) scale(1.4, 1.4);
+}
+
+.main-video .video video{
+    margin-top: -100px;
+    width: 100%;
+
+}
+/*ANIMACIONES*/
+@keyframes opening-logo{
+    0%{transform: scale(0);}/*no aparezca*/
+    100%{transform: scale(1);}
+}
+
+/*BREAK POINTS @MEDIA*/
+@media (max-width: 1450px){
+    .main-video{
+        height: 600px;
+    }
+}
+@media (max-width: 1280px){
+    .main-video{
+        height: 400px;
+    }    
+}
+@media (max-width: 900px){
+       
+}
+@media (max-width: 800px){
+    .main-video{
+        height: 200px;
+    }
+    .main-video .video video{
+        margin-top: 0;
+    }
+    
+}
+@media (max-width: 540px){/*el tamaño minimo*/
+    .menu{
+        display: none;/*oculta el menu desktop*/
+    }
+    .menu-mobile{
+        display: block;/*coloca visible el menu mobile*/
+    }
+    
+    .main-video .video video{
+        margin-top: 0;
+    }
+    
+
+    .main-video{
+        margin-top: 100px;
+        height: 150px;
+    }
+    
 }
