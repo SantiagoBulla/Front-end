@@ -1,0 +1,13 @@
+/*font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Work Sans', sans-serif;*/
+
+/*CREAR VARIABLES*/
+:root{
+    --background-color: #16ffbd;
+    --primary-color: #000;
+    --highlight-color: #ff8dac;
+}
+
+body{
+    background-color: var(--background-color);
+}
