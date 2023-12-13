@@ -1,46 +1,45 @@
-/*font-family: 'Barlow Condensed', sans-serif;
-font-family: 'Work Sans', sans-serif;*/
-
-/*CREAR VARIABLES*/
 :root{
-    --background-color: #16ffbd;
+    --background-color: #16FFBD;
     --primary-color: #000;
-    --highlight-color: #ff8dac;
+    --highlight-color: #FF8DAC;
 }
 
 *{
-    font-size: 16px; /*1rem = 16px*/
+    font-size: 16px;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: var(--background-color);
-    font-family: 'Work Sans',Arial, Helvetica, sans-serif;/*se agrego work sans entre comillas porque es una fuente importada*/
-    line-height: 2;/*separacion de lineas*/
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    line-height: 2;
     padding: 0;
     margin: 0;
 }
 
-::selection{
-    background-color: var(--highlight-color);/*cambia de color el seleccionado de texto*/
+:-moz-selection{
+    background-color: var(--highlight-color);
 }
-::-moz-selection{
-    background-color: var(--highlight-color);/*cambia de color el seleccionado de texto*/
+::selection{
+    background-color: var(--highlight-color);
 }
 
-a{/*hipervinculos*/
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 10px;
-    transition: color 0.2s ease-in-out;/*transicion al cambio de color en el hover, suave al inicio y al final de la transicion*/
+a{
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.2s ease-in-out
 }
 
 a:hover{
     color: var(--highlight-color);
 }
 
-/*encabezados*/
 h2, h3{
-    font-family: 'Barlow condensed',Arial, Helvetica, sans-serif;/*se usa para los encabezados la fuente importada barlow condensed*/
+    font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
 }
 
 h2{
@@ -53,27 +52,29 @@ h3{
     text-align: center;
 }
 
-/*CONTAINER*/
 .container{
-    width: 1920px;/*tiene un tamaño de pantalla estandar*/
+    width: 1920px;
 }
 
-/*MENU*/
-.menu{/*escritorio*/
+/*
+              MENU
+**/
+
+.menu{
     text-align: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 100px auto 0 auto;/*solo margin superior*/
+    margin: 100px auto 0 auto;
     width: 50%;
+    align-items: center;
 }
 
-.menu > div{/*afecta a todas las capas div del menu*/
+.menu > div{
     width: 33%;
 }
 
 .menu ul{
-    list-style: none;/*sin estilos para las listas*/
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -81,48 +82,50 @@ h3{
     gap: 30px;
 }
 
-.menu ul li{/*animacion para los elementos del menu tambien*/
-    animation-name: opening-logo;/*animacion propia*/
-    animation-duration: 1.6s;
-    animation-timing-function: ease-in-out;/*suave al empezar y terminar la animacion*/
+.menu ul li{
+    animation-name: opening-logo;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
 }
 
-.menu a{ /*elementos del menu*/
-    font-family: 'Barlow condensed';
+.menu a{
+    font-family: 'barlow Condensed';
     font-size: 1.7rem;
+
+    
 }
 
 .menu .logo img{
-    animation-name: opening-logo;/*animacion propia*/
+    animation-name: opening-logo;
     animation-duration: 1.6s;
-    animation-timing-function: ease-in-out;/*suave al empezar y terminar la animacion*/
+    animation-timing-function: ease-in-out;
 }
 
-/*MENU MOBILE*/
-.menu-mobile{/*oculta el menu en primera instancia*/
+.menu-mobile{
     display: none;
 }
 
-.menu-mobile a:hover svg{/*para el icono de hamburguesa*/
-    fill: var(--highlight-color);/*como es un vector svg se puede cambiar el color, en este caso con el hover*/
+.menu-mobile a:hover svg{
+    fill: var(--highlight-color);
 }
 
 .menu-mobile .header{
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     align-content: center;
-    width: 100%;
 }
 
 .menu-mobile .header .logo{
-    flex-grow: 2;/*factor de crecimiento del logo en su contenedor*/
+    flex-grow: 2;
     text-align: center;
 }
 
 .menu-mobile .header .logo img{
-    width: 20%;
+    width: 64px;
+
     animation-name: opening-logo;
     animation-duration: 1.6s;
     animation-timing-function: ease-in-out;
@@ -141,21 +144,22 @@ h3{
 
 .menu-mobile ul li a{
     display: block;
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 .menu-mobile-closed{
-    /*cuando se da click en el boton hamburguesa se quita este estilo y se muestra las opciones del menu*/
     display: none;
 }
+/*
+              MAIN VIDEO
+**/
 
-/* MAIN VIDEO*/
-.main-video{/*tamaños y configuraciones del div que guarda el video*/
+.main-video{
     margin-top: 250px;
-    transform-origin: 0 0;/*para que la perspectiva no cambie*/
-    transform: skewY(-10deg);/*lo hace diagonal empezando de derecha a izquierda porque son deg negativos*/
-    overflow: hidden;/*para que no se desborde el contenido*/
-    height: 500px;/*500px*/
+    transform-origin: 0 0;
+    transform: skewY(-10deg);
+    overflow: hidden;
+    height: 500px;
     margin-bottom: 150px;
 }
 
@@ -167,45 +171,309 @@ h3{
 .main-video .video video{
     margin-top: -100px;
     width: 100%;
-
 }
-/*ANIMACIONES*/
+
+/*
+              INTRO
+**/
+
+.intro{
+    text-align: center;
+    width: 320px;
+    margin: 0 auto;
+    margin-top: -100px;
+    padding-bottom: 100px;
+}
+
+/*
+              WORK
+**/
+
+.work{
+    padding-top: 150px;
+    transform-origin: 0 0;
+    transform: skewY(-10deg);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.grid .item{
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    
+}
+
+.grid .item img{
+    width: 101%;
+    margin-top: -60px;
+    transform: skewY(10deg) scale(1.2,1.2);
+    transition: all 0.075s;
+}
+
+.grid .item:hover img{
+    transform: skewY(10deg) scale(1.4,1.4);
+}
+
+.grid .item .bg-hover{
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 150%;
+    display: grid;
+    position: absolute;
+    z-index: 2;
+    top: -25%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transform: skewY(10deg) scale(1,1);
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.grid .item:hover .bg-hover{
+    overflow: hidden;
+    opacity: 1;
+}
+
+.grid .item:hover .bg-hover .info{
+    animation-name: bounce;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+.grid .item .bg-hover .title{
+    color: white;
+}
+.grid .item .bg-hover .customer{
+    color: var(--background-color);
+}
+
+.about{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 150px;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact{
+    background-color: #000;
+    padding-top: 150px;
+    color: white;
+    transform: skewY(-10deg);
+}
+
+.contact .contact-container{
+    transform: skewY(10deg);
+    color: var(--background-color);
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.contact .contact-container h3{
+    color: white;
+}
+
+.contact .contact-container .emails{
+    text-align: right;
+}
+
+.contact .contact-container .emails h3{
+    text-align: right;
+}
+
+.contact .contact-container .location h3{
+    text-align: left;
+}
+
+.contact .contact-container .social{
+    text-align: center;
+}
+
+.contact .contact-container .social a:hover path{
+    fill: var(--highlight-color);
+}
+
+footer{
+    background-color: #000;
+    height: 450px;
+    margin-top: -170px;
+}
+
+#screen{
+    background-color:var(--highlight-color);
+    position: fixed;
+    z-index: 100;
+    top: -280px;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    transform: skewY(-10deg);
+    transition: all 0.45s;
+    animation-timing-function: lineal;
+    animation-duration: 2s;
+}
+
+#details-container{
+    background-color: var(--background-color);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    overflow: auto;
+    display: none;
+}
+
+#details-container .nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.item-hide{
+    display: none;
+}
+
+#details-container .items{
+    width: 60%;
+    margin: 0 auto;
+}
+
+#details-container .items .item .main-image img{
+    width: 100%;
+}
+
+#details-container .items .item .title{
+    text-align: center;
+}
+
+
+
+
 @keyframes opening-logo{
-    0%{transform: scale(0);}/*no aparezca*/
-    100%{transform: scale(1);}
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
 }
 
-/*BREAK POINTS @MEDIA*/
+@keyframes bounce{
+    0% {transform: translateY(500px);}
+    80% {transform: translateY(-30px);}
+    100% {transform: translateY(0);}
+}
+
+@keyframes fade-in{
+    0%{height: 0vh;}
+    50%{height: 150vh;}
+    100%{height: 0vh;}
+}
+
+
+
 @media (max-width: 1450px){
     .main-video{
         height: 600px;
     }
+
+    .grid .item{
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+    }
 }
+
 @media (max-width: 1280px){
     .main-video{
         height: 400px;
-    }    
+    }
+
+    .grid{
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+
+    .grid .item{
+        height: 150px;
+    }
+
+    .contact .contact-container{
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .contact .contact-container h3{
+        text-align: center !important;
+    }
+    .contact .contact-container .emails{
+        text-align: center;
+    }
 }
+
 @media (max-width: 900px){
-       
+    .grid .item{
+        height: 150px;
+    }
+    .grid{
+        grid-template-columns: 1fr 1fr; 
+    }
 }
+
 @media (max-width: 800px){
     .main-video{
         height: 200px;
     }
+
     .main-video .video video{
         margin-top: 0;
     }
-    
+
+    .grid .item{
+        height: 150px;
+    }
+
+
+    .grid{
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .columns{
+        flex-direction: column; 
+        gap: 0;
+    }
+
+    .columns div{
+        width: 100%;
+        text-align: center;
+    }
 }
-@media (max-width: 540px){/*el tamaño minimo*/
+
+
+@media (max-width: 540px){
     .menu{
-        display: none;/*oculta el menu desktop*/
+        display: none;
     }
     .menu-mobile{
-        display: block;/*coloca visible el menu mobile*/
+        display: block;
     }
-    
+
     .main-video .video video{
         margin-top: 0;
     }
@@ -215,5 +483,11 @@ h3{
         margin-top: 100px;
         height: 150px;
     }
-    
+
+    .grid .item{
+        height: 200px;
+    }
+    .grid{
+        grid-template-columns: 1fr; 
+    }
 }
